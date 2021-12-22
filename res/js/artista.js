@@ -17,7 +17,7 @@
 			data: {
 			},
 			// url: '/res/data/lastfm.json'
-			url: 'http://localhost:4518/api/scolars/params'
+			url: 'https://mapadeventuras-ws.promperu.gob.pe/api/scolars/params'
 		})
 		.done( fillArtistInfo )
 		resultOut.html( '<p class="loading">cargando...</p>' )
