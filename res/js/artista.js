@@ -42,10 +42,10 @@
 	function requestValorar(){
 		console.log(0)
 		$.ajax({
-			data: {artist: artistInput.val()},
+			type: "POST",
+			url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion',
 			data: { "Form" : $('#form'), "Comentario" : $('#Comentario'), "Valoracion" : $('#Valoracion'), "Edad" : $('#Edad')
 			},
-			url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion'
 		})
 		.done( requestValorarFill )
 		resultOut.html( '<p class="loading">valorando...</p>' )
