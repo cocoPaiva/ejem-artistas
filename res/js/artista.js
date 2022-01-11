@@ -1,14 +1,41 @@
 (function(){
-	var artistInput = $('#artista'),
-		button = $('#boton'),
-		resultOut = $('#content'),
-		button2 = $('#botonValora')
-
+	var artistInput = $('#artista'),button = $('#boton'),resultOut = $('#content'),button2 = $('#botonValora')
 
 	artistInput.on('keyup', getArtist)
 	button.on('click', requestArtist)
 	button2.on('click', requestValorar)
 	
+	function requestValorar(){
+		console.log(0)
+		$.ajax({
+			type: "POST",
+			dataType: "json", 
+			contentType: "application/json; charset=utf-8",
+			url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion',
+			body: { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value
+			},
+		})
+		.done( requestValorarFill )
+		resultOut.html( '<p class="loading">valorando...</p>' )
+	}
+	function requestValorarFill( jsonData ){ 
+		console.log(111)
+		console.log(jsonData)
+		console.log(222)
+		var res = jsonData.estado,
+
+		html = ''
+		html += '<h2>' + res.status + '</h2>'
+		html += '<h3>' + res.description + '</h3>'
+
+		console.log(888)
+		resultOut.html( html )
+		console.log(999)
+	}
+
+
+	// ------------
+
 	function getArtist( evt ){
 		if(evt.keyCode == 13){requestArtist()}
 	}
@@ -39,31 +66,6 @@
 		console.log(999)
 	}
 
-	function requestValorar(){
-		console.log(0)
-		$.ajax({
-			type: "POST",
-			// dataType: "json", //7
-			// contentType: "application/json; charset=utf-8",
-			url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion',
-			body: { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value
-			},
-		})
-		.done( requestValorarFill )
-		resultOut.html( '<p class="loading">valorando...</p>' )
-	}
-	function requestValorarFill( jsonData ){ 
-		console.log(111)
-		console.log(jsonData)
-		console.log(222)
-		var res = jsonData.estado,
+	// -------------
 
-		html = ''
-		html += '<h2>' + res.status + '</h2>'
-		html += '<h3>' + res.description + '</h3>'
-
-		console.log(888)
-		resultOut.html( html )
-		console.log(999)
-	}
 }())
