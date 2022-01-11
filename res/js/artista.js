@@ -48,9 +48,11 @@
 			url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion'
 		})
 		.done( requestValorarFill )
-		resultOut.html( '<p class="loading">enviando ... cargando...</p>' )
+		resultOut.html( '<p class="loading">valorando...</p>' )
 	}
 	function requestValorarFill( jsonData ){ 
+		console.log(000)
+		console.log(jsonData)
 		console.log(111)
 		var res = jsonData.estado,
 
