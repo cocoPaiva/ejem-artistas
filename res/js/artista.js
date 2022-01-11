@@ -44,7 +44,7 @@
 		$.ajax({
 			type: "POST",
 			url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion',
-			data: { "Form" : $('#form'), "Comentario" : $('#Comentario'), "Valoracion" : $('#Valoracion'), "Edad" : $('#Edad')
+			data: { "Form" : $('#form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value
 			},
 		})
 		.done( requestValorarFill )
