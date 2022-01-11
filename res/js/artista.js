@@ -2,7 +2,7 @@
 	var artistInput = $('#artista'),
 		button = $('#boton'),
 		resultOut = $('#content'),
-		button2 = $('#botonValora'),
+		button2 = $('#botonValora')
 
 	artistInput.on('keyup', getArtist)
 	button.on('click', requestArtist)
