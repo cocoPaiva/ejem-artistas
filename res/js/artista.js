@@ -4,6 +4,7 @@
 		resultOut = $('#content'),
 		button2 = $('#botonValora')
 
+
 	artistInput.on('keyup', getArtist)
 	button.on('click', requestArtist)
 	button2.on('click', requestValorar)
@@ -38,12 +39,11 @@
 		console.log(999)
 	}
 
-	
 	function requestValorar(){
 		console.log(0)
 		$.ajax({
 			data: {artist: artistInput.val()},
-			data: { "Form" : "1", "Comentario" : "mi comm", "Valoracion" : "1", "Edad" : "30"
+			data: { "Form" : $('#form'), "Comentario" : $('#Comentario'), "Valoracion" : $('#Valoracion'), "Edad" : $('#Edad')
 			},
 			url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion'
 		})
