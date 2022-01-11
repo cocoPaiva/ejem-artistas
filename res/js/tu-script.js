@@ -1,1 +1,0 @@
-$('#content').html('Contenido cargado con jQuery!')

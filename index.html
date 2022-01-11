@@ -7,13 +7,28 @@
 		<link href="res/css/artist.css" rel="stylesheet">
 	</head>
 	<body>
-		<h1>Carga de Artistas</h1>
-		<p>Carga la información de tu artista favorito!</p>
+		<h3>Test WS</h3>
+		<p>Leer parámtros:</p>
 		<div class="form-inline">
 			<input name="artist" type="text" id="artista" placeholder="Nombre del artista" class="form-control">
 			<button id="boton" class="btn btn-primary">Cargar info</button>
 		</div>
 		<div id="content"></div>
+
+		<p>Valoración POST:</p>
+		<div class="form-inline">
+			<input name="form" type="text" id="form" placeholder="edad" class="form-control" value="1">
+			<br>
+			<input name="Comentario" type="text" id="Comentario" placeholder="Comentario para la we" class="form-control" value="Mi comentario web...">
+			<br>
+			<input name="Valoracion" type="text" id="Valoracion" placeholder="Valoracion" class="form-control" value="3">
+			<br>
+			<input name="Edad" type="text" id="Edad" placeholder="rango de edad" class="form-control" value="primaria">
+			<br>
+			<button id="botonValora" class="btn btn-primary">Enviar info</button>
+		</div>
+		<div id="content"></div>
+
 		<!-- jQuery en el CDN de otro, como Google -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<!-- Luego si tus scripts -->
