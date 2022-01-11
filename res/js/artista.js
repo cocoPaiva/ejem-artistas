@@ -58,6 +58,7 @@
 
 		html = ''
 		html += '<h2>' + res.status + '</h2>'
+		html += '<h3>' + res.description + '</h3>'
 
 		console.log(888)
 		resultOut.html( html )
