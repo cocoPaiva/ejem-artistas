@@ -45,7 +45,7 @@
 			data: {artist: artistInput.val()},
 			data: { "Form" : "1", "Comentario" : "mi comm", "Valoracion" : "1", "Edad" : "30"
 			},
-			url: 'https://mapadeventuras-ws.promperu.gob.pe/api/scolars/valoracion'
+			url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion'
 		})
 		.done( requestValorarFill )
 		resultOut.html( '<p class="loading">enviando ... cargando...</p>' )
