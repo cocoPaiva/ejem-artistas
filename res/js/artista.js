@@ -39,7 +39,8 @@
 		// 	// data: JSON.stringify(  { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value}  ) ,
 		// 	// data: JSON.stringify( $("#f").serialize()  ) 
 		// })
-		.done( requestValorarFill )
+		// .done( requestValorarFill )
+		
 		resultOut.html( '<p class="loading">valorando...</p>' )
 
 		console.log( JSON.stringify( 
