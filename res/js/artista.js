@@ -33,12 +33,11 @@
 		$.ajax({
 			type: "POST",
 			 dataType: "json", 
+			 contentType: "",
 			// contentType: "application/json; charset=utf-8",
 			url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion',
-			// body: { "Form" : "1", "Comentario" : "la fea", "Valoracion" : "2", "Edad" : "31 años"},
 			 data: JSON.stringify( 
-				 { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value} 
-				 ) 
+				 { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value} ) 
 				//  body: { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value}
 		})
 		.done( requestValorarFill )
