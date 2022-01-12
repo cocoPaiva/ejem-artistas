@@ -34,7 +34,7 @@
 			type: "POST",
 			 dataType: "json", 
 			// contentType: "application/json; charset=utf-8",
-			url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion/',
+			url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion',
 			// body: { "Form" : "1", "Comentario" : "la fea", "Valoracion" : "2", "Edad" : "31 años"},
 			 data: JSON.stringify( 
 				 { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value} 
@@ -43,6 +43,11 @@
 		})
 		.done( requestValorarFill )
 		resultOut.html( '<p class="loading">valorando...</p>' )
+
+		console.log( JSON.stringify( 
+			{ "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value} 
+			)
+			 )
 	}
 	function requestValorarFill( jsonData ){ 
 		console.log(111)
