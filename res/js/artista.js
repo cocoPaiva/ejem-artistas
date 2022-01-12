@@ -10,35 +10,35 @@
 		resultOut.html( '<p class="loading">valorando...</p>' )
 // debugger
 		
-		// $.post("https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion", $("#f").serialize(), function (data, textStatus) {
-		// 	var res = "";
-		// 	console.log(textStatus)
-		// 	console.log(data)
+		$.post("https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion", $("#f").serialize(), function (data, textStatus) {
+			var res = "";
+			console.log(textStatus)
+			console.log(data)
 			
-		// 	if (textStatus == "success") {
-		// 		res = data.estado.status;
-		// 		if (res == "1") {
-		// 			resultOut.html( "ok!" )
-		// 		 } else {
-		// 			resultOut.html( ":-( :: " + data.estado.description )
-		// 			}
+			if (textStatus == "success") {
+				res = data.estado.status;
+				if (res == "1") {
+					resultOut.html( "ok!" )
+				 } else {
+					resultOut.html( ":-( :: " + data.estado.description )
+					}
 
-		// 	}
-		// 	else
-		// 	{resultOut.html( "Error : " +  textStatus )}
+			}
+			else
+			{resultOut.html( "Error : " +  textStatus )}
 			
-		// }, "json");
+		}, "json");
 
-		//invocación que no funcionó:
-		$.ajax({
-			type: "POST",
-			dataType: "json", 
-			contentType: "application/json; charset=utf-8",
-			url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion',
-			//  body: { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value}
-			// data: JSON.stringify(  { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value}  ) ,
-			data: JSON.stringify( $("#f").serialize()  ) 
-		})
+		// //invocación que no funciona:
+		// $.ajax({
+		// 	type: "POST",
+		// 	dataType: "json", 
+		// 	contentType: "application/json; charset=utf-8",
+		// 	url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion',
+		// 	 body: { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value}
+		// 	// data: JSON.stringify(  { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value}  ) ,
+		// 	// data: JSON.stringify( $("#f").serialize()  ) 
+		// })
 		.done( requestValorarFill )
 		resultOut.html( '<p class="loading">valorando...</p>' )
 
