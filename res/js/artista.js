@@ -37,7 +37,7 @@
 			url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion',
 			//  body: { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value}
 			// data: JSON.stringify(  { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value}  ) ,
-			data: $("#f").serialize() 
+			data: JSON.stringify( $("#f").serialize()  ) 
 		})
 		.done( requestValorarFill )
 		resultOut.html( '<p class="loading">valorando...</p>' )
