@@ -7,16 +7,40 @@
 	
 	function requestValorar(){
 		console.log(0)
-		$.ajax({
-			type: "POST",
-			dataType: "json", 
-			contentType: "application/json; charset=utf-8",
-			url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion',
-			body: { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value
-			},
-		})
-		.done( requestValorarFill )
 		resultOut.html( '<p class="loading">valorando...</p>' )
+// debugger
+		
+		$.post("https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion", $("#f").serialize(), function (data, textStatus) {
+			var res = "";
+			console.log(textStatus)
+			console.log(data)
+			
+			if (textStatus == "success") {
+				res = data.estado.status;
+				if (res == "1") {
+					resultOut.html( "ok!" )
+				 } else {
+					resultOut.html( ":-( :: " + data.estado.description )
+					}
+
+			}
+			else
+			{resultOut.html( "Error : " +  textStatus )}
+			
+		}, "json");
+
+		//invocación que no funcionó:
+		// $.ajax({
+		// 	type: "POST",
+		// 	 dataType: "json", 
+		// 	// contentType: "application/json; charset=utf-8",
+		// 	url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion',
+		// 	body: { "Form" : "1", "Comentario" : "la fea", "Valoracion" : "2", "Edad" : "31 años"},
+		// 	// body: { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value},
+		// 	data: { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value},
+		// })
+		// .done( requestValorarFill )
+		// resultOut.html( '<p class="loading">valorando...</p>' )
 	}
 	function requestValorarFill( jsonData ){ 
 		console.log(111)
