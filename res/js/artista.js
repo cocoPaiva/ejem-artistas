@@ -32,13 +32,12 @@
 		//invocación que no funcionó:
 		$.ajax({
 			type: "POST",
-			 dataType: "json", 
-			 contentType: "",
-			// contentType: "application/json; charset=utf-8",
+			dataType: "json", 
+			contentType: "application/json; charset=utf-8",
 			url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion',
-			 data: JSON.stringify( 
-				 { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value} ) 
-				//  body: { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value}
+			//  body: { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value}
+			// data: JSON.stringify(  { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value}  ) ,
+			data: $("#f").serialize() 
 		})
 		.done( requestValorarFill )
 		resultOut.html( '<p class="loading">valorando...</p>' )
