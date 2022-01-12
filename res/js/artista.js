@@ -9,8 +9,10 @@
 		console.log(0)
 		resultOut.html( '<p class="loading">valorando...</p>' )
 // debugger
-		
-		$.post("https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion", $("#f").serialize(), function (data, textStatus) {
+// var urlqa="https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion";
+	var urlqa="https://mapadeventuras-ws.promperu.gob.pe/api/scolars/valoracion";
+
+	$.post( urlqa, $("#f").serialize(), function (data, textStatus) {
 			var res = "";
 			console.log(textStatus)
 			console.log(data)
@@ -36,11 +38,9 @@
 		// 	contentType: "application/json; charset=utf-8",
 		// 	url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion',
 		// 	 body: { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value}
-		// 	// data: JSON.stringify(  { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value}  ) ,
-		// 	// data: JSON.stringify( $("#f").serialize()  ) 
 		// })
 		// .done( requestValorarFill )
-		
+
 		resultOut.html( '<p class="loading">valorando...</p>' )
 
 		console.log( JSON.stringify( 
