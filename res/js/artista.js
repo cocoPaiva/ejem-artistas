@@ -1,69 +1,9 @@
 (function(){
-	var artistInput = $('#artista'),button = $('#boton'),resultOut = $('#content'),button2 = $('#botonValora')
+	var artistInput = $('#artista'),button = $('#boton'),resultOut = $('#content') 
 
 	artistInput.on('keyup', getArtist)
 	button.on('click', requestArtist)
-	button2.on('click', requestValorar)
-	
-	function requestValorar(){
-		console.log(0)
-		resultOut.html( '<p class="loading">valorando...</p>' )
-// debugger
-// var urlqa="https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion";
-	var urlqa="https://mapadeventuras-ws.promperu.gob.pe/api/scolars/valoracion";
-
-	$.post( urlqa, $("#f").serialize(), function (data, textStatus) {
-			var res = "";
-			console.log(textStatus)
-			console.log(data)
-			
-			if (textStatus == "success") {
-				res = data.estado.status;
-				if (res == "1") {
-					resultOut.html( "ok!" )
-				 } else {
-					resultOut.html( ":-( :: " + data.estado.description )
-					}
-
-			}
-			else
-			{resultOut.html( "Error : " +  textStatus )}
-			
-		}, "json");
-
-		// //invocación que no funciona:
-		// $.ajax({
-		// 	type: "POST",
-		// 	dataType: "json", 
-		// 	contentType: "application/json; charset=utf-8",
-		// 	url: 'https://mapadeventuras.promperu.gob.pe/api/api/scolars/valoracion',
-		// 	 body: { "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value}
-		// })
-		// .done( requestValorarFill )
-
-		resultOut.html( '<p class="loading">valorando...</p>' )
-
-		console.log( JSON.stringify( 
-			{ "Form" : $('#Form').value, "Comentario" : $('#Comentario').value, "Valoracion" : $('#Valoracion').value, "Edad" : $('#Edad').value} 
-			)
-			 )
-	}
-	function requestValorarFill( jsonData ){ 
-		console.log(111)
-		console.log(jsonData)
-		console.log(222)
-		var res = jsonData.estado,
-
-		html = ''
-		html += '<h2>' + res.status + '</h2>'
-		html += '<h3>' + res.description + '</h3>'
-
-		console.log(888)
-		resultOut.html( html )
-		console.log(999)
-	}
-
-
+	 
 	// ------------
 
 	function getArtist( evt ){
@@ -76,7 +16,7 @@
 			data: {
 			},
 			// url: '/res/data/lastfm.json'
-			url: 'https://mapadeventuras-ws.promperu.gob.pe/api/scolars/params'
+			url: 'https://apidesaplataforma.jne.gob.pe/api/v1/candidato?idProcesoElectoral=84&NumeroDocumento=' + $('#artista').val()
 		})
 		.done( fillArtistInfo )
 		resultOut.html( '<p class="loading">cargando...</p>' )
@@ -84,12 +24,12 @@
 
 	function fillArtistInfo( jsonData ){ 
 		console.log(1)
-		var artist = jsonData.Departamentos,
+		var artist = jsonData.data,
 			html = ''
 		
-		html += '<h2>' + artist[0].nombre + '</h2>'
-		html += '<figure><img src="' + artist[0].silueta + '"></figure>'
-		html += '<p class="bio">' + artist[0].videos + '</p>'
+			$('#caja1').val(artist[0].nombreCompleto)
+			$('#caja2').val(artist[0].organizacionPolitica)
+			$('#caja3').val(artist[0].postulaDistrito)
 
 		console.log(888)
 		resultOut.html( html )
